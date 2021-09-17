@@ -38,7 +38,7 @@ def encode_object_bool_types(df_x, df_test):
     for row in df.dtypes.iteritems():
         if row[1] == 'object' or row[1] == 'bool':
             column = row[0]
-            if len(df[row[0]].value_counts()) < 1:  # one-hot encoding
+            if len(df[row[0]].value_counts()) < 5:  # one-hot encoding
                 df = pre_processing.one_hot_encoding(dataframe=df, column=column)
             else:
                 to_label_encode.append(column)
